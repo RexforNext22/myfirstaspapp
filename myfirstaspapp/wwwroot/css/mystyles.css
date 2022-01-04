@@ -1,0 +1,21 @@
+﻿body {
+    font-family: Courier New, Courier, monospace;
+
+}
+
+body {
+    text-align: center;
+}
+
+form {
+    display: inline-block;
+}
+
+label {
+    font-size: 18px;
+    color: blue;
+}
+
+textarea {
+    font-size: 20px;
+}
