@@ -19,15 +19,36 @@ namespace myfirstaspapp
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add this line for the services
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            if (env.IsEnvironment("Development"))
+            {
+                app.UseDeveloperExceptionPage();
+
+            }
+
             // Do this to access the html pages
-            app.UseDefaultFiles(); //Keep these two lines in order
+            //app.UseDefaultFiles(); //Keep these two lines in order
             app.UseStaticFiles();
 
+            app.UseRouting();
+
+            // Create an endpoint
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Main}/{action=Index}/{id?}"
+
+
+                    );
+
+            });
 
         }
     }
