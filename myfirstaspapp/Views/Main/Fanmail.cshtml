@@ -2,16 +2,22 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+
+
+
 }
 
+@model FanMailModel;
 
 <h2>Send him fan mail</h2>
-<form style="align-content: center">
+<form style="align-content: center" method="POST">
     <label>From:</label>
-    <input id="from" type="text" /><br /><br />
+    <input id="from" type="text" asp-for="sFrom"/><br /><br />
     <label>Subject:</label>
-    <input id="subject" type="text" /><br /><br />
+    <input id="subject" type="text" asp-for="sSubject"/><br /><br />
     <label>Message:</label>
-    <textarea id="message" rows="4"></textarea><br /><br />
-    <input id="btnsend" type="button" value="Send Message">
+    <textarea id="message" rows="4" asp-for="sMessage"></textarea><br /><br />
+    <input id="btnsend" type="submit" value="Send Message">
+
+    <div asp-validation-summary="All"></div>
 </form>
